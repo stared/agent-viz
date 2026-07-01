@@ -6,7 +6,7 @@ const tools = defineCollection({
     name: z.string(),
     tagline: z.string(),
     // Which section the card lives in.
-    tier: z.enum(['structural', 'pixel', 'dashboard', 'logviewer', 'research']),
+    tier: z.enum(['structural', 'pixel', 'dashboard', 'logviewer', 'multiagent', 'research']),
     note: z.string(),
     // Screenshot of the actual tool UI — either a hotlinked remote URL or a
     // local path under public/ (e.g. /shots/foo.png). Omit when no usable

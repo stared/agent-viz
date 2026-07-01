@@ -33,7 +33,14 @@ const TIERS = [
     title: 'Session log viewers & replay',
     color: 'var(--tier-logviewer)',
     description:
-      'Turn the raw ~/.claude/projects JSONL transcripts into readable, browsable, shareable conversations with expandable tool calls.',
+      'Turn the raw JSONL transcripts (Claude Code, Codex, Cursor, …) into readable, browsable, shareable conversations with expandable tool calls.',
+  },
+  {
+    id: 'multiagent',
+    title: 'Multi-agent & cross-tool',
+    color: 'var(--tier-multiagent)',
+    description:
+      'Not Claude-only: one tool that reads sessions from many agents at once — Claude Code, Codex, Cursor, OpenCode, Gemini CLI, Aider, Cline. Unified session browsers, replays and cross-agent usage graphs.',
   },
   {
     id: 'research',
@@ -49,15 +56,15 @@ const byTier = (id: string) =>
     .filter((t) => t.data.tier === id)
     .sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
 
-const title = 'Claude Trajectory Visualizations';
+const title = 'Agent Trajectory Visualizations';
 const description =
-  'A card gallery of tools that visualize Claude Code / AI-agent trajectories — prompts, tool calls, subagents, file changes and sessions. "Gource for Claude Code" and beyond.';
+  'A card gallery of tools that visualize AI coding-agent trajectories — Claude Code, Codex, Cursor, OpenCode and more: prompts, tool calls, subagents, file changes and sessions. "Gource for coding agents" and beyond.';
 ---
 
 <Base title={title} description={description}>
   <header class="site-header">
     <div class="wrap">
-      <span class="brand">Claude Trajectory Viz<span class="dot">.</span></span>
+      <span class="brand">Agent Trajectory Viz<span class="dot">.</span></span>
       <nav class="site-nav">
         {TIERS.map((t) => <a href={`#${t.id}`}>{t.title}</a>)}
         <a class="repo-link" href="https://github.com/stared/agent-viz" target="_blank" rel="noopener"
@@ -69,11 +76,12 @@ const description =
 
   <div class="hero">
     <div class="wrap">
-      <h1>Claude Trajectory <span class="accent">Visualizations</span></h1>
+      <h1>Agent Trajectory <span class="accent">Visualizations</span></h1>
       <p class="lede">
-        Tools that make a Claude Code / AI-agent session <em>visible</em> — prompts, tool calls,
-        subagents, file changes and whole trajectories. From cinematic replays and pixel-art
-        companions to dashboards, log viewers and observability. {all.length} tools, grouped.
+        Tools that make a coding-agent session <em>visible</em> — prompts, tool calls, subagents,
+        file changes and whole trajectories. Mostly Claude Code, now also Codex, Cursor, OpenCode,
+        Gemini CLI and cross-agent tools. From cinematic replays and pixel-art companions to
+        dashboards, log viewers and observability. {all.length} tools, grouped.
       </p>
     </div>
   </div>

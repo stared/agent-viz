@@ -1,19 +1,21 @@
-# Claude Trajectory Visualizations
+# Agent Trajectory Visualizations
 
-A single-page **card gallery** of tools that visualize Claude Code / AI-agent *trajectories* —
-prompts, tool calls, subagents, file changes and whole sessions. Think "Gource for Claude Code" and
-everything around it.
+A single-page **card gallery** of tools that visualize AI coding-agent *trajectories* — prompts,
+tool calls, subagents, file changes and whole sessions. Mostly Claude Code, and now also Codex,
+Cursor, OpenCode, Gemini CLI and cross-agent tools. Think "Gource for coding agents" and everything
+around it.
 
 Each card shows a screenshot/GIF, a short note, and links to sources (GitHub / npm / Hacker News /
 blog / marketplace / arXiv).
 
-Tools are grouped into five tiers:
+Tools are grouped into six tiers:
 
 1. **Structural / graph replay** — the closest to Gource (Agent Flow, Claude Code Graph, 3D viz, Gource)
-2. **Pixel-art companions** — playful/ambient (Claude Quest, Pixel Agents, Claude Office, …)
+2. **Pixel-art companions** — playful/ambient (Claude Quest, Pixel Agents, Claude Office, Blob Office, …)
 3. **Dashboards, analytics & scrollytelling** — patterns over time
-4. **Session log viewers & replay** — JSONL → readable transcripts
-5. **Research & observability** — state-transition trees, timelines, failure chains
+4. **Session log viewers & replay** — JSONL → readable transcripts (Claude Code, Codex, Cursor, …)
+5. **Multi-agent & cross-tool** — one tool reading many agents at once (Tokscale, AgentsView, Claude Replay, …)
+6. **Research & observability** — state-transition trees, timelines, failure chains
 
 ## Develop
 
@@ -38,7 +40,7 @@ frontmatter is the card. Schema lives in `src/content/config.ts`:
 ---
 name: Tool Name
 tagline: One-line description
-tier: structural   # structural | pixel | dashboard | logviewer | research
+tier: structural   # structural | pixel | dashboard | logviewer | multiagent | research
 note: One or two sentences describing it.
 image: https://.../screenshot.png   # optional; remote URL or a /public path like /shots/foo.png
 imageAlt: Alt text                   # optional
