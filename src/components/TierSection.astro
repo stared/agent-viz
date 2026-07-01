@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ToolCard from './ToolCard.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  color: string;
+  tools: CollectionEntry<'tools'>[];
+}
+const { id, title, description, color, tools } = Astro.props;
+---
+
+<section class="tier" id={id}>
+  <div class="wrap">
+    <div class="tier-head" style={`--tier-color:${color}`}>
+      <h2>{title}</h2>
+      <span class="count">{tools.length} tools</span>
+    </div>
+    <p class="tier-desc">{description}</p>
+    <div class="grid">
+      {tools.map((t) => <ToolCard tool={t.data} tierColor={color} />)}
+    </div>
+  </div>
+</section>

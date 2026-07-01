@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  tool: CollectionEntry<'tools'>['data'];
+  tierColor: string;
+}
+const { tool, tierColor } = Astro.props;
+
+const valColor = {
+  high: 'var(--val-high)',
+  medium: 'var(--val-medium)',
+  low: 'var(--val-low)',
+}[tool.value];
+
+const valLabel = { high: 'High', medium: 'Medium', low: 'Low' }[tool.value];
+
+// Client-side fallback: if the hotlinked image 404s / breaks, swap to the
+// project's GitHub social card (or the same URL if none was provided).
+const fallback = tool.fallbackImage ?? tool.image;
+---
+
+<article class="card" style={`--tier-color:${tierColor};--val-color:${valColor}`}>
+  <div class="thumb">
+    <img
+      src={tool.image}
+      alt={tool.imageAlt}
+      loading="lazy"
+      decoding="async"
+      data-fallback={fallback}
+      onerror="if(this.src!==this.dataset.fallback){this.src=this.dataset.fallback}"
+    />
+    <span class="val" title="Gource-like value">{valLabel}</span>
+  </div>
+  <div class="body">
+    <h3>{tool.name}</h3>
+    <p class="tagline">{tool.tagline}</p>
+    <p class="note">{tool.note}</p>
+    <div class="links">
+      {
+        tool.links.map((l) => (
+          <a href={l.url} target="_blank" rel="noopener noreferrer">
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</article>

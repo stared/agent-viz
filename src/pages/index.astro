@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import TierSection from '../components/TierSection.astro';
+
+const all = await getCollection('tools');
+
+// Tier definitions: id, heading, blurb, accent color — in display order.
+const TIERS = [
+  {
+    id: 'structural',
+    title: 'Structural / graph replay',
+    color: 'var(--tier-structural)',
+    description:
+      'The closest to "Gource for Claude Code" — prompts, tool calls, subagents and file changes as spatial graphs or animated replays. Highest cinematic value.',
+  },
+  {
+    id: 'pixel',
+    title: 'Pixel-art companions',
+    color: 'var(--tier-pixel)',
+    description:
+      'Playful, ambient viz: your session dramatized as pixel-art characters, offices and dungeons. More vibe than data, but great for making agent activity felt.',
+  },
+  {
+    id: 'dashboard',
+    title: 'Dashboards, analytics & scrollytelling',
+    color: 'var(--tier-dashboard)',
+    description:
+      'Narrative dashboards and usage analytics — sessions, tools, costs, context, rhythm. Good for patterns over time rather than a spatial replay.',
+  },
+  {
+    id: 'logviewer',
+    title: 'Session log viewers & replay',
+    color: 'var(--tier-logviewer)',
+    description:
+      'Turn the raw ~/.claude/projects JSONL transcripts into readable, browsable, shareable conversations with expandable tool calls.',
+  },
+  {
+    id: 'research',
+    title: 'Research & observability',
+    color: 'var(--tier-research)',
+    description:
+      'The right abstraction — agent trajectories as state-transition trees, timelines and failure chains. Diagnostic and provider-agnostic rather than cinematic.',
+  },
+] as const;
+
+const byTier = (id: string) =>
+  all
+    .filter((t) => t.data.tier === id)
+    .sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+
+const title = 'Claude Trajectory Visualizations';
+const description =
+  'A card gallery of tools that visualize Claude Code / AI-agent trajectories — prompts, tool calls, subagents, file changes and sessions. "Gource for Claude Code" and beyond.';
+---
+
+<Base title={title} description={description}>
+  <header class="site-header">
+    <div class="wrap">
+      <span class="brand">Claude Trajectory Viz<span class="dot">.</span></span>
+      <nav class="site-nav">
+        {TIERS.map((t) => <a href={`#${t.id}`}>{t.title}</a>)}
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <h1>Claude Trajectory <span class="accent">Visualizations</span></h1>
+      <p class="lede">
+        Tools that make a Claude Code / AI-agent session <em>visible</em> — prompts, tool calls,
+        subagents, file changes and whole trajectories. Rated by their "Gource-like value": how much
+        they render the run as a living, spatial thing rather than a log. {all.length} tools, grouped.
+      </p>
+      <div class="legend">
+        <span class="group"><strong>Gource-like value:</strong></span>
+        <span class="group"
+          ><span class="swatch" style="background:var(--val-high)"></span> High</span
+        >
+        <span class="group"
+          ><span class="swatch" style="background:var(--val-medium)"></span> Medium</span
+        >
+        <span class="group"
+          ><span class="swatch" style="background:var(--val-low)"></span> Low</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <main>
+    {
+      TIERS.map((t) => (
+        <TierSection
+          id={t.id}
+          title={t.title}
+          description={t.description}
+          color={t.color}
+          tools={byTier(t.id)}
+        />
+      ))
+    }
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        Community tools; not affiliated with Anthropic. Screenshots are hotlinked from each project's
+        own repository / site and belong to their authors. Found something missing? The gallery is
+        driven by markdown files in <code>src/content/tools/</code>.
+      </p>
+    </div>
+  </footer>
+</Base>
