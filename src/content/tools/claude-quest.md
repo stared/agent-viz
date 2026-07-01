@@ -9,6 +9,10 @@ note: >-
 image: https://github.com/Michaelliv/claude-quest/raw/main/assets/hero.gif
 imageAlt: Claude Quest pixel-art character reacting to tool calls
 order: 1
+repo: Michaelliv/claude-quest
+stars: 185
+firstCommit: "2026-01-14"
+lastCommit: "2026-04-13"
 links:
   - label: GitHub
     url: https://github.com/Michaelliv/claude-quest

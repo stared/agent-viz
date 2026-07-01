@@ -9,6 +9,10 @@ note: >-
 image: /shots/claude-code-log.png
 imageAlt: claude-code-log rendered HTML transcript output
 order: 3
+repo: daaain/claude-code-log
+stars: 1125
+firstCommit: "2025-06-14"
+lastCommit: "2026-07-01"
 links:
   - label: GitHub
     url: https://github.com/daaain/claude-code-log

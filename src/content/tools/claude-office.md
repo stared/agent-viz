@@ -9,6 +9,10 @@ note: >-
 image: https://raw.githubusercontent.com/paulrobello/claude-office/main/screenshot.png
 imageAlt: Claude Office pixel-art office simulation view
 order: 3
+repo: paulrobello/claude-office
+stars: 445
+firstCommit: "2026-01-22"
+lastCommit: "2026-06-26"
 links:
   - label: GitHub
     url: https://github.com/paulrobello/claude-office

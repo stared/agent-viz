@@ -42,12 +42,20 @@ tier: structural   # structural | pixel | dashboard | logviewer | research
 note: One or two sentences describing it.
 image: https://.../screenshot.png   # optional; remote URL or a /public path like /shots/foo.png
 imageAlt: Alt text                   # optional
+video: https://.../clip.mp4          # optional; autoplaying muted preview (takes priority over image)
+repo: owner/name                     # optional; GitHub slug
+stars: 1234                          # optional; GitHub stars (snapshot)
+firstCommit: "2025-06-14"            # optional; shown as a "first → last commit" range
+lastCommit: "2026-07-01"             # optional
 order: 1                             # sort within tier (optional)
 links:
   - label: GitHub
     url: https://github.com/owner/repo
 ---
 ```
+
+Each card with a `repo` shows a **★ stars · first → last commit** line. Those values are baked from
+the GitHub API (a dated snapshot), not fetched at runtime.
 
 ### Images
 

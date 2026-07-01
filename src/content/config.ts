@@ -18,6 +18,13 @@ const tools = defineCollection({
       })
       .optional(),
     imageAlt: z.string().optional(),
+    // Autoplaying muted video preview (used when the only artifact is a clip).
+    video: z.string().url().optional(),
+    // GitHub metadata (baked from the API; a dated snapshot).
+    repo: z.string().optional(),
+    stars: z.number().optional(),
+    firstCommit: z.string().optional(),
+    lastCommit: z.string().optional(),
     links: z
       .array(
         z.object({

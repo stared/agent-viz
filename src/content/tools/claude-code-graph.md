@@ -9,6 +9,10 @@ note: >-
 image: https://github.com/pradeepvairamani/claude-code-graph/raw/main/media/screenshots/prompt-graph.png
 imageAlt: Claude Code Graph prompt-and-subagent graph
 order: 2
+repo: pradeepvairamani/claude-code-graph
+stars: 2
+firstCommit: "2026-03-01"
+lastCommit: "2026-03-15"
 links:
   - label: GitHub
     url: https://github.com/pradeepvairamani/claude-code-graph

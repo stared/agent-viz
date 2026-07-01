@@ -9,6 +9,10 @@ note: >-
 image: https://arxiv.org/html/2604.11641v3/x1.png
 imageAlt: CodeTracer architecture — extraction, structuring and trace agents over trajectory trees
 order: 1
+repo: NJU-LINK/CodeTracer
+stars: 79
+firstCommit: "2026-04-10"
+lastCommit: "2026-06-19"
 links:
   - label: arXiv
     url: https://arxiv.org/abs/2604.11641

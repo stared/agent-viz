@@ -9,6 +9,10 @@ note: >-
 image: https://github.com/d-kimuson/claude-code-viewer/raw/main/e2e/snapshots/projects/L2hvbWUvcnVubmVyL3dvcmsvY2xhdWRlLWNvZGUtdmlld2VyL2NsYXVkZS1jb2RlLXZpZXdlci9tb2NrLWdsb2JhbC1jbGF1ZGUtZGlyL3Byb2plY3RzL3NhbXBsZS1wcm9qZWN0/session_sessionId_fe5e1c67-53e7-4862-81ae-d0e013e3270b/desktop-dark.png
 imageAlt: Claude Code Viewer web client interface
 order: 4
+repo: d-kimuson/claude-code-viewer
+stars: 1238
+firstCommit: "2025-08-31"
+lastCommit: "2026-05-10"
 links:
   - label: GitHub
     url: https://github.com/d-kimuson/claude-code-viewer

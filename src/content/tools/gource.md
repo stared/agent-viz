@@ -9,6 +9,10 @@ note: >-
 image: https://gource.io/images/gource-git.jpg
 imageAlt: Gource animated repository visualization
 order: 4
+repo: acaudwell/Gource
+stars: 13060
+firstCommit: "2009-09-11"
+lastCommit: "2026-03-06"
 links:
   - label: gource.io
     url: https://gource.io/

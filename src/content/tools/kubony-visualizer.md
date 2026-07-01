@@ -7,6 +7,10 @@ note: >-
   workflows — via a CLI project scanner, an Express server and a React/TypeScript web app. Also
   visualizes agent–skill–command relationships as a graph.
 order: 1
+repo: kubony/claude-code-visualizer
+stars: 38
+firstCommit: "2026-01-03"
+lastCommit: "2026-02-01"
 links:
   - label: GitHub
     url: https://github.com/kubony/claude-code-visualizer

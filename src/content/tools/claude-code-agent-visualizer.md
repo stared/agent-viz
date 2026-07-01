@@ -9,6 +9,10 @@ note: >-
 image: https://raw.githubusercontent.com/tormodt/claude-code-agent-visualizer/main/screenshots/office-space.png
 imageAlt: Claude Code Agent Visualizer office-space theme
 order: 5
+repo: tormodt/claude-code-agent-visualizer
+stars: 4
+firstCommit: "2026-03-08"
+lastCommit: "2026-03-12"
 links:
   - label: GitHub
     url: https://github.com/tormodt/claude-code-agent-visualizer

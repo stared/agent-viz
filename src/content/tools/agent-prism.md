@@ -9,6 +9,10 @@ note: >-
 image: /shots/agent-prism.png
 imageAlt: AgentPrism trace-tree UI with spans, timeline and LLM/tool/chain badges
 order: 2
+repo: evilmartians/agent-prism
+stars: 363
+firstCommit: "2025-07-22"
+lastCommit: "2026-04-14"
 links:
   - label: GitHub
     url: https://github.com/evilmartians/agent-prism

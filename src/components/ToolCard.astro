@@ -15,19 +15,53 @@ const imgSrc = tool.image
     ? tool.image
     : base.replace(/\/$/, '') + tool.image
   : undefined;
+
+const hasMedia = Boolean(tool.video || imgSrc);
+
+// Compact star count: 1001 -> "1k", 30219 -> "30.2k".
+function fmtStars(n: number): string {
+  if (n < 1000) return String(n);
+  const k = n / 1000;
+  return (k >= 10 ? Math.round(k) : Math.round(k * 10) / 10) + 'k';
+}
+
+// "YYYY-MM-DD" -> "Mon YYYY".
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function fmtDate(d?: string): string | undefined {
+  if (!d) return undefined;
+  const [y, m] = d.split('-');
+  const mi = Number(m) - 1;
+  return `${MONTHS[mi] ?? ''} ${y}`.trim();
+}
+
+const first = fmtDate(tool.firstCommit);
+const last = fmtDate(tool.lastCommit);
+const span = first && last ? (first === last ? first : `${first} → ${last}`) : first || last;
 ---
 
 <article class="card" style={`--tier-color:${tierColor}`}>
   {
-    imgSrc && (
+    hasMedia && (
       <div class="thumb">
-        <img
-          src={imgSrc}
-          alt={tool.imageAlt ?? tool.name}
-          loading="lazy"
-          decoding="async"
-          onerror="this.closest('.thumb').remove()"
-        />
+        {tool.video ? (
+          <video
+            src={tool.video}
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label={tool.imageAlt ?? tool.name}
+          />
+        ) : (
+          <img
+            src={imgSrc}
+            alt={tool.imageAlt ?? tool.name}
+            loading="lazy"
+            decoding="async"
+            onerror="this.closest('.thumb').remove()"
+          />
+        )}
       </div>
     )
   }
@@ -35,6 +69,18 @@ const imgSrc = tool.image
     <h3>{tool.name}</h3>
     <p class="tagline">{tool.tagline}</p>
     <p class="note">{tool.note}</p>
+    {
+      (tool.stars !== undefined || span) && (
+        <p class="meta">
+          {tool.stars !== undefined && (
+            <span class="stars" title={`${tool.stars.toLocaleString()} GitHub stars`}>
+              ★ {fmtStars(tool.stars)}
+            </span>
+          )}
+          {span && <span class="commits" title="First → last commit">{span}</span>}
+        </p>
+      )
+    }
     <div class="links">
       {
         tool.links.map((l) => (

@@ -9,6 +9,10 @@ note: >-
 image: https://github.com/pixel-agents-hq/pixel-agents/raw/main/webview-ui/public/Screenshot.jpg
 imageAlt: Pixel Agents animated pixel-art office with agent characters
 order: 2
+repo: pixel-agents-hq/pixel-agents
+stars: 8409
+firstCommit: "2026-02-08"
+lastCommit: "2026-06-29"
 links:
   - label: GitHub
     url: https://github.com/pixel-agents-hq/pixel-agents

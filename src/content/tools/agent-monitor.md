@@ -9,6 +9,10 @@ note: >-
 image: https://github.com/hoangsonww/Claude-Code-Agent-Monitor/raw/master/images/dashboard.png
 imageAlt: Claude Code Agent Monitor real-time dashboard
 order: 3
+repo: hoangsonww/Claude-Code-Agent-Monitor
+stars: 729
+firstCommit: "2026-03-05"
+lastCommit: "2026-07-01"
 links:
   - label: GitHub
     url: https://github.com/hoangsonww/Claude-Code-Agent-Monitor

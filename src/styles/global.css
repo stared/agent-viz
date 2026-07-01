@@ -166,7 +166,8 @@ a {
   aspect-ratio: 16 / 9;
   overflow: hidden;
 }
-.card .thumb img {
+.card .thumb img,
+.card .thumb video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -201,10 +202,26 @@ a {
   font-weight: 500;
 }
 .card .note {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: var(--text-dim);
   font-size: 0.88rem;
   flex: 1;
+}
+.card .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin: 0 0 13px;
+  font-size: 0.76rem;
+  color: var(--text-faint);
+}
+.card .meta .stars {
+  color: var(--tier-color);
+  font-weight: 600;
+}
+.card .meta .commits {
+  font-variant-numeric: tabular-nums;
 }
 .card .links {
   display: flex;

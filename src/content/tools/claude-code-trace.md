@@ -9,6 +9,10 @@ note: >-
 image: https://github.com/delexw/claude-code-trace/raw/main/demo.gif
 imageAlt: Claude Code Trace session log viewer
 order: 1
+repo: delexw/claude-code-trace
+stars: 332
+firstCommit: "2026-03-11"
+lastCommit: "2026-07-01"
 links:
   - label: GitHub
     url: https://github.com/delexw/claude-code-trace

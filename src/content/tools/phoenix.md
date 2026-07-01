@@ -9,6 +9,10 @@ note: >-
 image: https://raw.githubusercontent.com/Arize-ai/phoenix-assets/main/gifs/phoenix_overview.gif
 imageAlt: Arize Phoenix trace and trajectory analysis interface
 order: 3
+repo: Arize-ai/phoenix
+stars: 10361
+firstCommit: "2022-11-09"
+lastCommit: "2026-07-01"
 links:
   - label: GitHub
     url: https://github.com/Arize-ai/phoenix
