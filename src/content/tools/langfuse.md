@@ -6,6 +6,8 @@ note: >-
   An open-source observability platform that captures the full context of each request — prompts,
   responses, tool calls and their relationships — and renders agent runs as trees with parent runs,
   tool calls, subagents and retries.
+image: https://github.com/user-attachments/assets/8f6995b7-285f-441a-b52f-1331d13ceb45
+imageAlt: Langfuse trace view — trace tree with span latency, cost and token detail
 order: 4
 repo: langfuse/langfuse
 stars: 30219

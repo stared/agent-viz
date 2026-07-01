@@ -61,10 +61,11 @@ the GitHub API (a dated snapshot), not fetched at runtime.
 
 Cards show a **real screenshot of the tool's UI** — mostly hotlinked from each project's own repo/site
 (README demo GIFs, docs, paper figures), with a couple captured from live demos and committed under
-`public/shots/`. There are **no generic GitHub social-card thumbnails**: if a tool has no usable
-screenshot, `image` is simply omitted and the card renders **text-only** (with a slim tier-colored top
-accent) rather than showing a fake placeholder. If a hotlinked image 404s at runtime, an `onerror`
-handler in `ToolCard.astro` removes the broken image area so the layout never breaks.
+`public/shots/`. There are **no generic GitHub social-card thumbnails**. If a tool has no usable screenshot, `image`
+is omitted and the card renders **text-only** (with a slim tier-colored top accent) rather than a fake
+placeholder — and if such a tool is also low-star and inactive, it's dropped rather than kept blank.
+If a hotlinked image 404s at runtime, an `onerror` handler in `ToolCard.astro` removes the broken
+image area so the layout never breaks.
 
 ## Deploy (GitHub Pages)
 
