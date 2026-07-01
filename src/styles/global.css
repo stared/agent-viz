@@ -17,11 +17,6 @@
   --tier-logviewer: #8a8f98;
   --tier-research: #9b7bc9;
 
-  /* value badge colors */
-  --val-high: #6fbf73;
-  --val-medium: #d0a94a;
-  --val-low: #8a8f98;
-
   --maxw: 1180px;
   --radius: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
@@ -118,26 +113,6 @@ a {
   font-size: 1.05rem;
   margin: 0 0 24px;
 }
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px 26px;
-  align-items: center;
-  font-size: 0.82rem;
-  color: var(--text-dim);
-}
-.legend .group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.legend .swatch {
-  width: 11px;
-  height: 11px;
-  border-radius: 3px;
-  display: inline-block;
-}
-
 /* ---------- tier section ---------- */
 .tier {
   padding: 46px 0 8px;
@@ -189,29 +164,24 @@ a {
 .card .thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #201d18, #14120d);
   overflow: hidden;
 }
 .card .thumb img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   display: block;
 }
-.card .thumb .val {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--bg) 70%, transparent);
-  backdrop-filter: blur(4px);
-  border: 1px solid var(--val-color);
-  color: var(--val-color);
+/* text-only cards (no screenshot) get a slim tier-colored top accent
+   so they still read as part of their group */
+.card:not(:has(.thumb)) {
+  border-top: 3px solid var(--tier-color);
+}
+.card:not(:has(.thumb)) .body {
+  padding-top: 18px;
 }
 .card .body {
   padding: 15px 16px 16px;

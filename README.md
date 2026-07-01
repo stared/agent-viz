@@ -4,8 +4,7 @@ A single-page **card gallery** of tools that visualize Claude Code / AI-agent *t
 prompts, tool calls, subagents, file changes and whole sessions. Think "Gource for Claude Code" and
 everything around it.
 
-Each card shows a screenshot/GIF, a short note, a **"Gource-like value"** rating (how much it renders
-the run as a living, spatial thing vs. a log), and links to sources (GitHub / npm / Hacker News /
+Each card shows a screenshot/GIF, a short note, and links to sources (GitHub / npm / Hacker News /
 blog / marketplace / arXiv).
 
 Tools are grouped into five tiers:
@@ -40,12 +39,10 @@ frontmatter is the card. Schema lives in `src/content/config.ts`:
 name: Tool Name
 tagline: One-line description
 tier: structural   # structural | pixel | dashboard | logviewer | research
-value: high        # high | medium | low  (the "Gource-like value")
 note: One or two sentences describing it.
-image: https://.../screenshot.png       # hotlinked; a project demo image where possible
-imageAlt: Alt text
-fallbackImage: https://opengraph.githubassets.com/1/owner/repo   # optional onerror fallback
-order: 1           # sort within tier (optional)
+image: https://.../screenshot.png   # optional; remote URL or a /public path like /shots/foo.png
+imageAlt: Alt text                   # optional
+order: 1                             # sort within tier (optional)
 links:
   - label: GitHub
     url: https://github.com/owner/repo
@@ -54,10 +51,12 @@ links:
 
 ### Images
 
-Screenshots are **hotlinked** (no local copies). Each card prefers the project's own demo
-GIF/screenshot; when a README only has badges/video, it falls back to the GitHub social card at
-`https://opengraph.githubassets.com/1/<owner>/<repo>`. If a hotlinked image ever breaks, an
-`onerror` handler in `ToolCard.astro` swaps to `fallbackImage` at runtime so the layout never breaks.
+Cards show a **real screenshot of the tool's UI** — mostly hotlinked from each project's own repo/site
+(README demo GIFs, docs, paper figures), with a couple captured from live demos and committed under
+`public/shots/`. There are **no generic GitHub social-card thumbnails**: if a tool has no usable
+screenshot, `image` is simply omitted and the card renders **text-only** (with a slim tier-colored top
+accent) rather than showing a fake placeholder. If a hotlinked image 404s at runtime, an `onerror`
+handler in `ToolCard.astro` removes the broken image area so the layout never breaks.
 
 ## Deploy (GitHub Pages)
 

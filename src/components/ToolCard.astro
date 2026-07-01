@@ -7,31 +7,30 @@ interface Props {
 }
 const { tool, tierColor } = Astro.props;
 
-const valColor = {
-  high: 'var(--val-high)',
-  medium: 'var(--val-medium)',
-  low: 'var(--val-low)',
-}[tool.value];
-
-const valLabel = { high: 'High', medium: 'Medium', low: 'Low' }[tool.value];
-
-// Client-side fallback: if the hotlinked image 404s / breaks, swap to the
-// project's GitHub social card (or the same URL if none was provided).
-const fallback = tool.fallbackImage ?? tool.image;
+// Resolve local (public/) screenshots against the configured base path;
+// leave absolute http(s) URLs untouched.
+const base = import.meta.env.BASE_URL;
+const imgSrc = tool.image
+  ? tool.image.startsWith('http')
+    ? tool.image
+    : base.replace(/\/$/, '') + tool.image
+  : undefined;
 ---
 
-<article class="card" style={`--tier-color:${tierColor};--val-color:${valColor}`}>
-  <div class="thumb">
-    <img
-      src={tool.image}
-      alt={tool.imageAlt}
-      loading="lazy"
-      decoding="async"
-      data-fallback={fallback}
-      onerror="if(this.src!==this.dataset.fallback){this.src=this.dataset.fallback}"
-    />
-    <span class="val" title="Gource-like value">{valLabel}</span>
-  </div>
+<article class="card" style={`--tier-color:${tierColor}`}>
+  {
+    imgSrc && (
+      <div class="thumb">
+        <img
+          src={imgSrc}
+          alt={tool.imageAlt ?? tool.name}
+          loading="lazy"
+          decoding="async"
+          onerror="this.closest('.thumb').remove()"
+        />
+      </div>
+    )
+  }
   <div class="body">
     <h3>{tool.name}</h3>
     <p class="tagline">{tool.tagline}</p>

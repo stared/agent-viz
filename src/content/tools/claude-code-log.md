@@ -2,14 +2,12 @@
 name: claude-code-log
 tagline: JSONL → readable HTML / Markdown (CLI)
 tier: logviewer
-value: low
 note: >-
   A Python CLI that converts Claude Code transcript JSONL files into clean, chronological HTML or
   Markdown — for single files or the whole ~/.claude/projects hierarchy with a linked index — plus an
   interactive TUI for browsing sessions.
-image: https://opengraph.githubassets.com/1/daaain/claude-code-log
-imageAlt: claude-code-log generated HTML transcript
-fallbackImage: https://opengraph.githubassets.com/1/daaain/claude-code-log
+image: /shots/claude-code-log.png
+imageAlt: claude-code-log rendered HTML transcript output
 order: 3
 links:
   - label: GitHub

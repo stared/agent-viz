@@ -7,14 +7,17 @@ const tools = defineCollection({
     tagline: z.string(),
     // Which section the card lives in.
     tier: z.enum(['structural', 'pixel', 'dashboard', 'logviewer', 'research']),
-    // "Gource-like value" rating shown as a badge on the card.
-    value: z.enum(['high', 'medium', 'low']),
     note: z.string(),
-    // Hotlinked remote image (project demo GIF/screenshot, or an og fallback).
-    image: z.string().url(),
-    imageAlt: z.string(),
-    // Fallback used by the client-side onerror handler if `image` fails to load.
-    fallbackImage: z.string().url().optional(),
+    // Screenshot of the actual tool UI — either a hotlinked remote URL or a
+    // local path under public/ (e.g. /shots/foo.png). Omit when no usable
+    // screenshot exists; the card then renders text-only.
+    image: z
+      .string()
+      .refine((s) => /^https?:\/\//.test(s) || s.startsWith('/'), {
+        message: 'image must be an http(s) URL or a /public path',
+      })
+      .optional(),
+    imageAlt: z.string().optional(),
     links: z
       .array(
         z.object({
