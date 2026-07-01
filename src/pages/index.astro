@@ -60,6 +60,9 @@ const description =
       <span class="brand">Claude Trajectory Viz<span class="dot">.</span></span>
       <nav class="site-nav">
         {TIERS.map((t) => <a href={`#${t.id}`}>{t.title}</a>)}
+        <a class="repo-link" href="https://github.com/stared/agent-viz" target="_blank" rel="noopener"
+          >GitHub ↗</a
+        >
       </nav>
     </div>
   </header>
@@ -95,7 +98,8 @@ const description =
         Community tools; not affiliated with Anthropic. Screenshots come from each project's own
         repo / site (a couple captured from their live demos) and belong to their authors. GitHub
         stars and first/last-commit dates are a snapshot from July 2026. Found something missing?
-        The gallery is driven by markdown files in <code>src/content/tools/</code>.
+        The gallery is driven by markdown files in <code>src/content/tools/</code> — open a PR on
+        <a href="https://github.com/stared/agent-viz" target="_blank" rel="noopener">stared/agent-viz</a>.
       </p>
     </div>
   </footer>

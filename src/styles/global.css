@@ -92,6 +92,13 @@ a {
   color: var(--text);
   border-color: var(--border-hover);
 }
+.site-nav a.repo-link {
+  color: var(--text);
+  border-color: var(--border-hover);
+}
+.site-nav a.repo-link:hover {
+  border-color: var(--accent);
+}
 
 /* ---------- hero ---------- */
 .hero {
