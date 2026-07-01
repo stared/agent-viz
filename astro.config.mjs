@@ -1,10 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// If deploying to GitHub Pages at https://<user>.github.io/claude_visualizations/,
-// set `site` to your Pages origin and `base` to '/claude_visualizations'.
-// For a user/root site or local use, leave `base` as '/'.
+// Deployed as a GitHub Pages project site for stared/agent-viz, served under
+// the account's custom domain: https://p.migdal.pl/agent-viz/
+// `base` must match the repo path; local `pnpm dev` therefore serves at /agent-viz/.
 export default defineConfig({
-  site: 'https://example.github.io',
-  base: '/',
+  site: 'https://p.migdal.pl',
+  base: '/agent-viz',
 });

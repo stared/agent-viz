@@ -69,8 +69,17 @@ image area so the layout never breaks.
 
 ## Deploy (GitHub Pages)
 
-Set `site` and `base` in `astro.config.mjs` to your Pages URL (e.g. `base: '/claude_visualizations'`),
-then `pnpm build` and publish `./dist`.
+Deployed automatically by `.github/workflows/deploy.yml` on every push to `main`: it installs with
+pnpm, runs `pnpm build`, and publishes `./dist` via the official Pages actions.
+
+The site is a **project page** at **https://p.migdal.pl/agent-viz/** — `stared/agent-viz` served under
+the account's custom domain (`stared.github.io` → `p.migdal.pl`). Because it lives under the
+`/agent-viz` subpath, `astro.config.mjs` sets `site: 'https://p.migdal.pl'` and `base: '/agent-viz'`;
+`ToolCard.astro` prefixes local `/shots/` images with that base. (Consequence: `pnpm dev` serves at
+`http://localhost:4321/agent-viz/`.)
+
+**One-time setup:** in the repo's **Settings → Pages**, set **Source = GitHub Actions**. The custom
+domain is inherited from the account's user-pages site, so no `CNAME` file is needed here.
 
 ---
 
