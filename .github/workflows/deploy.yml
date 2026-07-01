@@ -29,8 +29,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          # pnpm 11.5.2 requires Node >= 22.13 (uses node:sqlite)
-          node-version: 22
+          # Node 24 = current LTS and the runner default; also satisfies
+          # pnpm 11.5.2's Node >= 22.13 requirement (it imports node:sqlite).
+          node-version: 24
           cache: pnpm
 
       - name: Install dependencies
